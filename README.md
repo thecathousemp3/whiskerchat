@@ -5,99 +5,69 @@ SPDX-FileCopyrightText: 2019-Present Contributors to FluffyChat
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
-<img src="https://raw.githubusercontent.com/krille-chan/fluffychat/refs/heads/main/assets/logo/img/banner.png">
+# WhiskerChat
 
-[FluffyChat](https://fluffychat.im) is an open source, nonprofit and cute [[matrix](https://matrix.org)] client written in [Flutter](https://flutter.dev). The goal of the app is to create an easy to use instant messenger which is open source and accessible for everyone.
+> **Your conversations. Your homeserver. Your choice.**
+>
+> WhiskerChat is an open-source messenger for the decentralized [Matrix](https://matrix.org) network. Chat across homeservers, keep control of where your account lives, and connect with people using other Matrix apps.
 
-### Links:
+[Get WhiskerChat](https://github.com/thecathousemp3/whiskerchat/releases) · [Explore the code](https://github.com/thecathousemp3/whiskerchat) · [Report an issue](https://github.com/thecathousemp3/whiskerchat/issues)
 
-- 🌐 [[Weblate] Translate FluffyChat into your language](https://hosted.weblate.org/projects/fluffychat/)
-- 🌍 [[m] Join the community](https://matrix.to/#/#fluffy-space:matrix.org)
-- 📰 [[Mastodon] Get updates on social media](https://troet.cafe/@krille)
-- 💝 [[Liberapay] Support FluffyChat development](https://de.liberapay.com/KrilleChritzelius)
+## Made for everyday conversations
 
-<a href='https://ko-fi.com/krille' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi5.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+| Messages | Communities | Privacy |
+| --- | --- | --- |
+| Share messages, photos, files, voice notes, and your location. | Join group chats and public rooms, organize with Spaces, and use polls, stickers, and custom emotes. | Use end-to-end encrypted chats, encrypted backups, and cross-signing. |
 
-### Screenshots:
+WhiskerChat also supports voice and video calls, push notifications, message search, and tools for room moderation.
 
-<img src="https://github.com/krille-chan/fluffychat-website/blob/main/public/img/screenshot_mobile.png?raw=true" height="300">
-<img src="https://github.com/krille-chan/fluffychat-website/blob/main/public/img/screenshot_desktop.png?raw=true" height="300">
+## A more open network
 
-# Features
+Matrix is an open protocol, not a single chat service. Choose a homeserver, bring your account to conversations across the network, and use WhiskerChat alongside other compatible Matrix clients.
 
-- 📩 Send all kinds of messages, images and files
-- 🤙 Video calls with Matrix RTC
-- 🎙️ Voice messages
-- 📍 Location sharing
-- 🔔 Push notifications
-- 💬 Unlimited private and public group chats
-- 📣 Public channels with thousands of participants
-- 🛠️ Feature rich group moderation including all matrix features
-- 🔍 Discover and join public groups
-- 🎨 Material You design
-- 😄 Custom emotes and stickers
-- 🌌 Spaces
-- 🔐 End to end encryption
-- 🔒 Encrypted chat backup
-- 😀 Emoji verification & cross signing
-... and much more.
+## Get started
 
+Check [Releases](https://github.com/thecathousemp3/whiskerchat/releases) for available downloads. No release is published yet? Build from source using the instructions below.
 
-# Installation
+## Build from source
 
-Please visit the website for installation instructions:
+Install [Flutter](https://flutter.dev) and [Rust](https://www.rust-lang.org/tools/install), then clone the repository:
 
-- https://fluffychat.im
-
-# Configuration and Mobile Device Management (MDM)
-
-FluffyChat supports configuration via MDM on Android&iOS (since v2.10.0) and via a config.json file on web. You can see the populated configuration for MDM on Android in this file under `/android/app/src/main/res/xml/app_restrictions.xml`.
-An example configuration can be found in the `config.sample.json` file.
-
-# How to build
-
-1. To build FluffyChat you need [Flutter](https://flutter.dev) and [Rust](https://www.rust-lang.org/tools/install)
-
-2. Clone the repo:
+```sh
+git clone https://github.com/thecathousemp3/whiskerchat.git
+cd whiskerchat
 ```
-git clone https://github.com/krille-chan/fluffychat.git
-cd fluffychat
+
+Run the app on a connected device or desktop:
+
+```sh
+flutter run
 ```
-3. Debug on your platform with: `flutter run`
 
 ### Web
 
-* Execute once before run or build:
+Install the Vodozemac dependency once before running or building for web:
+
 ```bash
-./scripts/prepare-web.sh # To install Vodozemac
+./scripts/prepare-web.sh
 ```
 
-* Optionally configure by serving a `config.json` at the same path as fluffychat.
-  An example can be found at `config.sample.json`. All values there are optional.
-  **Please only the values, you really need**. If you e.g. only want
-  to change the default homeserver, then only modify the `defaultHomeserver` key.
+Optionally serve a `config.json` alongside the web app to customize settings. See [`config.sample.json`](config.sample.json) for available options.
 
-## How to run integration tests
+## Run integration tests
 
-You need to have docker installed locally! Run the preparation script before every test run:
+Install Docker and prepare the integration-test environment:
 
 ```sh
 ./scripts/prepare_integration_test.sh
 ```
 
-Then run all tests with:
+Run the tests:
 
 ```sh
 flutter test integration_test/mobile_test.dart
 ```
 
+## License
 
-# Special thanks
-
-* <a href="https://github.com/fabiyamada">Fabiyamada</a> is a graphics designer and has made the fluffychat logo and the banner. Big thanks for her great designs.
-
-* Also thanks to all translators and testers! With your help, fluffychat is now available in more than 12 languages.
-
-* The Matrix Foundation for making and maintaining the [emoji translations](https://github.com/matrix-org/matrix-spec/blob/main/data-definitions/sas-emoji.json) used for emoji verification, licensed Apache 2.0
-
-* Special thanks to MTRNord, Sorunome and Advocatux.
+WhiskerChat is free software, licensed under the [GNU AGPL v3.0 or later](LICENSE).
