@@ -60,16 +60,16 @@ class ChatListHeader extends StatelessWidget implements PreferredSizeWidget {
                 controller.onSearchEnter(text, globalSearch: globalSearch),
             decoration: InputDecoration(
               filled: true,
-              fillColor: theme.colorScheme.secondaryContainer,
+              fillColor: theme.colorScheme.surfaceContainerHighest,
               border: OutlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: BorderRadius.circular(99),
+                borderSide: BorderSide(color: theme.colorScheme.outline),
+                borderRadius: BorderRadius.circular(3),
               ),
               hintText: hide
                   ? L10n.of(context).searchChatsRooms
                   : status.calcLocalizedString(context),
               hintStyle: TextStyle(
-                color: theme.colorScheme.onPrimaryContainer,
+                color: theme.colorScheme.onSurfaceVariant,
                 fontWeight: FontWeight.normal,
               ),
 
@@ -79,7 +79,7 @@ class ChatListHeader extends StatelessWidget implements PreferredSizeWidget {
                             tooltip: L10n.of(context).cancel,
                             icon: const Icon(Icons.close_outlined),
                             onPressed: controller.cancelSearch,
-                            color: theme.colorScheme.onPrimaryContainer,
+                            color: theme.colorScheme.onSurface,
                           )
                         : isColumnMode ||
                               (controller.spaces.isEmpty &&
@@ -89,7 +89,7 @@ class ChatListHeader extends StatelessWidget implements PreferredSizeWidget {
                             onPressed: controller.startSearch,
                             icon: Icon(
                               Icons.search_outlined,
-                              color: theme.colorScheme.onPrimaryContainer,
+                              color: theme.colorScheme.onSurface,
                             ),
                           )
                         : IconButton(
@@ -97,7 +97,7 @@ class ChatListHeader extends StatelessWidget implements PreferredSizeWidget {
                             onPressed: controller.openNavrail,
                             icon: Icon(
                               Icons.menu,
-                              color: theme.colorScheme.onPrimaryContainer,
+                              color: theme.colorScheme.onSurface,
                             ),
                           )
                   : SizedBox(
@@ -128,7 +128,7 @@ class ChatListHeader extends StatelessWidget implements PreferredSizeWidget {
                             onPressed: controller.setServer,
                             style: TextButton.styleFrom(
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(99),
+                                borderRadius: BorderRadius.circular(3),
                               ),
                               textStyle: const TextStyle(fontSize: 12),
                             ),

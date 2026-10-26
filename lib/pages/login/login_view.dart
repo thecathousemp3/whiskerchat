@@ -5,6 +5,7 @@
 
 import 'package:fluffychat/l10n/l10n.dart';
 import 'package:fluffychat/widgets/layouts/login_scaffold.dart';
+import 'package:fluffychat/widgets/whisker_cat_mascot.dart';
 import 'package:material_ui/material_ui.dart';
 
 import 'login.dart';
@@ -41,14 +42,7 @@ class LoginView extends StatelessWidget {
                 Center(
                   child: Hero(
                     tag: 'info-logo',
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(128),
-                      child: Image.asset(
-                        './assets/logo/mini/logo_mini.png',
-                        width: 128,
-                        height: 128,
-                      ),
-                    ),
+                    child: const WhiskerCatMascot(size: 128),
                   ),
                 ),
                 const SizedBox(height: 16),

@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 name: fluffychat
-description: Chat with your friends.
+description: WhiskerChat - a Matrix messenger.
 publish_to: none
 # On version bump please also increase the build number (for F-Droid)
 version: 2.11.3+3574

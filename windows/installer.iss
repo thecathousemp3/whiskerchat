@@ -1,4 +1,4 @@
-﻿; Inno Setup script for the FluffyChat Windows installer.
+; Inno Setup script for the WhiskerChat Windows installer.
 ; Build with: scripts/package-windows.ps1
 
 #ifndef AppVersion
@@ -12,29 +12,29 @@
 [Setup]
 ; Never change the AppId! Inno Setup uses it to detect an existing
 ; installation, so that a new installer updates it in place.
-AppId={{4914EA58-B990-4CA5-BFAA-8EAC9A24F6A5}
-AppName=FluffyChat
+AppId={{003A16EA-3071-4936-88CE-9E3BDA77A4F3}
+AppName=WhiskerChat
 AppVersion={#AppVersion}
-AppVerName=FluffyChat {#AppVersion}
-AppPublisher=Christian Kußowski
-AppPublisherURL=https://fluffychat.im
-AppSupportURL=https://github.com/krille-chan/fluffychat/issues
-AppUpdatesURL=https://github.com/krille-chan/fluffychat/releases
+AppVerName=WhiskerChat {#AppVersion}
+AppPublisher=WhiskerChat contributors
+AppPublisherURL=https://github.com/thecathousemp3/whiskerchat
+AppSupportURL=https://github.com/thecathousemp3/whiskerchat/issues
+AppUpdatesURL=https://github.com/thecathousemp3/whiskerchat/releases
 VersionInfoVersion={#AppVersion}
 ; Per-user installation into %LOCALAPPDATA%\Programs, so that neither the
 ; installation nor updates require admin rights.
 PrivilegesRequired=lowest
-DefaultDirName={autopf}\FluffyChat
+DefaultDirName={autopf}\WhiskerChat
 DisableProgramGroupPage=yes
 ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 CloseApplications=yes
 RestartApplications=yes
 SetupIconFile=runner\resources\app_icon.ico
-UninstallDisplayIcon={app}\fluffychat.exe
+UninstallDisplayIcon={app}\whiskerchat.exe
 LicenseFile=..\LICENSE
 OutputDir=..\build\windows\installer
-OutputBaseFilename=fluffychat-windows-x64-setup
+OutputBaseFilename=whiskerchat-windows-x64-setup
 Compression=lzma2/max
 SolidCompression=yes
 WizardStyle=modern
@@ -66,8 +66,8 @@ Type: filesandordirs; Name: "{app}\data"
 Source: "{#BuildDir}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
-Name: "{autoprograms}\FluffyChat"; Filename: "{app}\fluffychat.exe"
-Name: "{autodesktop}\FluffyChat"; Filename: "{app}\fluffychat.exe"; Tasks: desktopicon
+Name: "{autoprograms}\WhiskerChat"; Filename: "{app}\whiskerchat.exe"
+Name: "{autodesktop}\WhiskerChat"; Filename: "{app}\whiskerchat.exe"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\fluffychat.exe"; Description: "{cm:LaunchProgram,FluffyChat}"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\whiskerchat.exe"; Description: "{cm:LaunchProgram,WhiskerChat}"; Flags: nowait postinstall skipifsilent

@@ -5,6 +5,7 @@
 
 import 'dart:math';
 
+import 'package:fluffychat/widgets/whisker_cat_mascot.dart';
 import 'package:material_ui/material_ui.dart';
 
 class EmptyPage extends StatelessWidget {
@@ -24,12 +25,9 @@ class EmptyPage extends StatelessWidget {
       extendBodyBehindAppBar: true,
       body: Container(
         alignment: Alignment.center,
-        child: Image.asset(
-          'assets/logo/mini/logo_mono_mini.png',
-          color: theme.colorScheme.surfaceContainerHigh,
-          width: width,
-          height: width,
-          filterQuality: FilterQuality.medium,
+        child: Opacity(
+          opacity: 0.18,
+          child: WhiskerCatMascot(size: width),
         ),
       ),
     );

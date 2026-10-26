@@ -10,6 +10,7 @@ import 'package:fluffychat/config/setting_keys.dart';
 import 'package:fluffychat/l10n/l10n.dart';
 import 'package:fluffychat/utils/platform_infos.dart';
 import 'package:fluffychat/widgets/adaptive_dialogs/adaptive_dialog_action.dart';
+import 'package:fluffychat/widgets/whisker_cat_mascot.dart';
 import 'package:http/http.dart' as http;
 import 'package:material_ui/material_ui.dart';
 import 'package:matrix/matrix.dart';
@@ -20,7 +21,7 @@ abstract class UpdateNotifier {
   static const String versionStoreKey = 'last_known_version';
   static const String dismissedUpdateStoreKey = 'dismissed_update_version';
   static const String _windowsInstallerAssetName =
-      'fluffychat-windows-x64-setup.exe';
+      'whiskerchat-windows-x64-setup.exe';
 
   /// Checks GitHub for a newer release with a Windows installer and
   /// displays a banner with a download link. Only for Windows, as all other
@@ -103,9 +104,16 @@ abstract class UpdateNotifier {
           builder: (context) => AlertDialog(
             title: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 256),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(AppConfig.borderRadius / 2),
-                child: Image.asset('assets/logo/mini/banner.png'),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                spacing: 12,
+                children: [
+                  WhiskerCatMascot(size: 48),
+                  Text(
+                    'WhiskerChat',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ],
               ),
             ),
             content: ConstrainedBox(

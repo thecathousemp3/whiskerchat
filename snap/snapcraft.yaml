@@ -1,17 +1,17 @@
-name: fluffychat
-title: FluffyChat Matrix Messenger
+name: whiskerchat
+title: WhiskerChat Matrix Messenger
 base: core24
-adopt-info: fluffychat
+adopt-info: whiskerchat
 license: AGPL-3.0
-summary: The cutest messenger in the Matrix network
+summary: Monochrome open-source messenger for the Matrix network
 description: |
   ## Your communication should be yours.
 
-  The open-source, non-profit European alternative to big tech’s messaging and video-call monopoly. End-to-end encrypted, decentralized, and easy to use for everyone.
+  WhiskerChat is a black-and-white messenger for the open Matrix network.
 
   ### Messaging how it should be
 
-  Whether for your friends, your company or local community, FluffyChat supports a variety of features to cover all your daily needs.
+  Whether for your friends, your company or local community, WhiskerChat supports a variety of features to cover all your daily needs.
 
   #### Easy to use
 
@@ -19,7 +19,7 @@ description: |
 
   #### Secure
 
-  With olm/megolm end-to-end encryption, encrypted message backups and an automated key trust system, FluffyChat is among the most secure messengers available.
+  With olm/megolm end-to-end encryption, encrypted message backups and an automated key trust system, WhiskerChat supports secure communication.
 
   #### Decentral
 
@@ -27,7 +27,7 @@ description: |
 
   ### Feature rich and reliable
 
-  From public chats with tens of thousands of participants and polls to custom stickers, spaces, rich moderation tools, and multi-device support, FluffyChat delivers a comprehensive communication suite.
+  From public chats with tens of thousands of participants and polls to custom stickers, spaces, moderation tools, and multi-device support, WhiskerChat delivers a comprehensive communication suite.
 
   #### Secure video calls
 
@@ -35,15 +35,13 @@ description: |
 
   #### Not another walled garden
 
-  We do not build another walled garden! FluffyChat is fully compatible with any other Matrix client like Element, Nheko, Cinny or NeoChat. Learn more at matrix.org.
+  WhiskerChat is compatible with other Matrix clients like Element, Nheko, Cinny or NeoChat. Learn more at matrix.org.
 
   #### Made by volunteers
 
-  FluffyChat is a non-profit project based on open standards and driven entirely by volunteers. Infrastructure is funded by donations, and participation is open to everyone.
+  WhiskerChat is an open-source Matrix client based on open standards.
 
-  Join the community: https://matrix.to/#/#fluffy-space:matrix.org
-  Website: http://fluffychat.im
-  Microblog: https://troet.cafe/@krille
+  Source code: https://github.com/thecathousemp3/whiskerchat
 
 grade: stable
 confinement: strict
@@ -80,7 +78,7 @@ parts:
       - llvm-18
     override-prime: ''
 
-  fluffychat:
+  whiskerchat:
     after: [flutter-git]
     plugin: nil
     source: .
@@ -129,8 +127,8 @@ slots:
     name: chat.fluffy.fluffychat
 
 apps:
-  fluffychat:
-    command: bin/fluffychat
+  whiskerchat:
+    command: bin/whiskerchat
     extensions: [ gnome ]
     plugs:
       - desktop

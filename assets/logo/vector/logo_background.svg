@@ -1,10 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-  <defs>
-    <linearGradient id="background" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0" style="stop-color:#7c67e4; stop-opacity:1" />
-      <stop offset="1" style="stop-color:#261386; stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  <rect width="200" height="200" fill="url(#background)" />
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="WhiskerCat"><rect x="2" y="2" width="96" height="96" rx="18" fill="#fff"/><path fill="#000" d="M20 36 31 8l17 16 4-2L69 8l11 28-2 33-13 17H35L22 69z"/><path fill="#fff" d="m28 29 4-13 11 11zm29-2 11-11 4 13z"/><path fill="#fff" d="M35 62a8 8 0 1 1 15 0 8 8 0 1 1 15 0l-15 9z"/><path fill="#000" stroke="#fff" stroke-width="2" d="M24 43h24v17l-6 6H29l-5-6zm28 0h24v17l-5 6H58l-6-6z"/><path stroke="#fff" stroke-width="2" d="M47 47h6M34 57 5 52m29 13L5 60m29 13L5 68m61-24 29-5m-29 17 29-8m-29 17 29-5"/></svg>

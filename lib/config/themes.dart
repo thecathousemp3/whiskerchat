@@ -3,8 +3,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-import 'package:fluffychat/config/app_config.dart';
-import 'package:fluffychat/config/setting_keys.dart';
 import 'package:flutter/services.dart';
 import 'package:material_ui/material_ui.dart';
 
@@ -40,15 +38,26 @@ abstract class FluffyThemes {
   static const Duration animationDuration = Duration(milliseconds: 250);
   static const Curve animationCurve = Curves.easeInOut;
 
-  static ThemeData buildTheme(
-    BuildContext context,
-    Brightness brightness, [
-    Color? seed,
-  ]) {
+  static ThemeData buildTheme(BuildContext context, Brightness brightness) {
+    final foreground = brightness == Brightness.light
+        ? Colors.black
+        : Colors.white;
+    final foregroundOn = brightness == Brightness.light
+        ? Colors.white
+        : Colors.black;
     final colorScheme = ColorScheme.fromSeed(
       brightness: brightness,
-      seedColor: seed ?? Color(AppSettings.colorSchemeSeedInt.value),
-      dynamicSchemeVariant: DynamicSchemeVariant.rainbow,
+      seedColor: Colors.black,
+      dynamicSchemeVariant: DynamicSchemeVariant.monochrome,
+    ).copyWith(
+      primary: foreground,
+      onPrimary: foregroundOn,
+      secondary: foreground,
+      onSecondary: foregroundOn,
+      tertiary: foreground,
+      onTertiary: foregroundOn,
+      error: foreground,
+      onError: foregroundOn,
     );
     final isColumnMode = FluffyThemes.isColumnMode(context);
     final dividerColor = brightness == Brightness.dark
@@ -60,34 +69,19 @@ abstract class FluffyThemes {
       brightness: brightness,
       colorScheme: colorScheme,
       dividerColor: dividerColor,
-      segmentedButtonTheme: SegmentedButtonThemeData(
-        style: SegmentedButton.styleFrom(
-          iconColor: colorScheme.onSurface,
-          disabledIconColor: colorScheme.onSurface,
-        ),
-      ),
-      textSelectionTheme: TextSelectionThemeData(
-        selectionColor: colorScheme.onSurface.withAlpha(128),
-        selectionHandleColor: colorScheme.secondary,
-      ),
-      inputDecorationTheme: InputDecorationTheme(
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppConfig.borderRadius / 2),
-        ),
-        contentPadding: const EdgeInsets.all(12),
-      ),
-      chipTheme: ChipThemeData(
-        showCheckmark: false,
-        backgroundColor: colorScheme.surfaceContainer,
-        side: BorderSide.none,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppConfig.borderRadius),
-        ),
-      ),
+      scaffoldBackgroundColor: colorScheme.surface,
       appBarTheme: AppBarTheme(
         toolbarHeight: isColumnMode ? 72 : 56,
-        surfaceTintColor: isColumnMode ? colorScheme.surface : null,
-        backgroundColor: isColumnMode ? colorScheme.surface : null,
+        surfaceTintColor: Colors.transparent,
+        backgroundColor: colorScheme.surface,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        titleTextStyle: TextStyle(
+          color: colorScheme.onSurface,
+          fontSize: 20,
+          fontWeight: FontWeight.w700,
+          letterSpacing: 0.2,
+        ),
         actionsPadding: isColumnMode
             ? const EdgeInsets.symmetric(horizontal: 16.0)
             : null,
@@ -99,12 +93,47 @@ abstract class FluffyThemes {
           systemNavigationBarColor: colorScheme.surface,
         ),
       ),
+      segmentedButtonTheme: SegmentedButtonThemeData(
+        style: SegmentedButton.styleFrom(
+          iconColor: colorScheme.onSurface,
+          disabledIconColor: colorScheme.onSurface,
+        ),
+      ),
+      textSelectionTheme: TextSelectionThemeData(
+        selectionColor: colorScheme.onSurface.withAlpha(128),
+        selectionHandleColor: colorScheme.secondary,
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: colorScheme.surfaceContainerLowest,
+        border: OutlineInputBorder(
+          borderSide: BorderSide(color: colorScheme.outline),
+          borderRadius: BorderRadius.circular(3),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: colorScheme.outlineVariant),
+          borderRadius: BorderRadius.circular(3),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: colorScheme.primary, width: 2),
+          borderRadius: BorderRadius.circular(3),
+        ),
+        contentPadding: const EdgeInsets.all(12),
+      ),
+      chipTheme: ChipThemeData(
+        showCheckmark: false,
+        backgroundColor: colorScheme.surfaceContainer,
+        side: BorderSide(color: colorScheme.outlineVariant),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(3),
+        ),
+      ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          side: BorderSide(width: 1, color: colorScheme.primary),
+          side: BorderSide(width: 1, color: colorScheme.outline),
           shape: RoundedRectangleBorder(
-            side: BorderSide(color: colorScheme.primary),
-            borderRadius: BorderRadius.circular(AppConfig.borderRadius / 2),
+            side: BorderSide(color: colorScheme.outline),
+            borderRadius: BorderRadius.circular(3),
           ),
         ),
       ),
@@ -122,12 +151,18 @@ abstract class FluffyThemes {
           : const SnackBarThemeData(behavior: SnackBarBehavior.floating),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: colorScheme.secondaryContainer,
-          foregroundColor: colorScheme.onSecondaryContainer,
+          backgroundColor: colorScheme.primary,
+          foregroundColor: colorScheme.onPrimary,
           elevation: 0,
           padding: const EdgeInsets.all(16),
           textStyle: const TextStyle(fontSize: 16),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
         ),
+      ),
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: colorScheme.primary,
+        foregroundColor: colorScheme.onPrimary,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
       ),
     );
   }

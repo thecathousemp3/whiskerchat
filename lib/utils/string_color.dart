@@ -6,20 +6,10 @@
 import 'package:material_ui/material_ui.dart';
 
 extension StringColor on String {
-  static final _colorSchemeCache = <String, ColorScheme>{};
+  static final _monochromeScheme = ColorScheme.fromSeed(
+    seedColor: Colors.black,
+    dynamicSchemeVariant: DynamicSchemeVariant.monochrome,
+  );
 
-  ColorScheme get colorScheme =>
-      _colorSchemeCache[this] ??= ColorScheme.fromSeed(
-        seedColor: _getColorLight(0.3),
-        dynamicSchemeVariant: DynamicSchemeVariant.rainbow,
-      );
-
-  Color _getColorLight(double light) {
-    var number = 0.0;
-    for (var i = 0; i < length; i++) {
-      number += codeUnitAt(i);
-    }
-    number = (number % 12) * 25.5;
-    return HSLColor.fromAHSL(0.75, number, 1, light).toColor();
-  }
+  ColorScheme get colorScheme => _monochromeScheme;
 }

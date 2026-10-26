@@ -8,6 +8,7 @@ import 'package:fluffychat/l10n/l10n.dart';
 import 'package:fluffychat/pages/intro/flows/restore_backup_flow.dart';
 import 'package:fluffychat/utils/platform_infos.dart';
 import 'package:fluffychat/widgets/layouts/login_scaffold.dart';
+import 'package:fluffychat/widgets/whisker_cat_mascot.dart';
 import 'package:fluffychat/widgets/matrix.dart';
 import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
@@ -114,14 +115,7 @@ class IntroPage extends StatelessWidget {
                             padding: const EdgeInsets.all(32.0),
                             child: Hero(
                               tag: 'info-logo',
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(128),
-                                child: Image.asset(
-                                  './assets/logo/mini/logo_mini.png',
-                                  width: 128,
-                                  height: 128,
-                                ),
-                              ),
+                              child: const WhiskerCatMascot(size: 128),
                             ),
                           ),
                           Text(

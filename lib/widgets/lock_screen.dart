@@ -7,6 +7,7 @@ import 'dart:async';
 
 import 'package:fluffychat/l10n/l10n.dart';
 import 'package:fluffychat/widgets/app_lock.dart';
+import 'package:fluffychat/widgets/whisker_cat_mascot.dart';
 import 'package:flutter/services.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:material_ui/material_ui.dart';
@@ -106,11 +107,7 @@ class _LockScreenState extends State<LockScreen> {
               padding: const EdgeInsets.all(16.0),
               children: [
                 Center(
-                  child: Image.asset(
-                    'assets/logo/mini/logo_mono_mini.png',
-                    width: 128,
-                    color: Theme.of(context).colorScheme.surfaceContainerHigh,
-                  ),
+                  child: const WhiskerCatMascot(size: 128),
                 ),
                 const SizedBox(height: 16),
                 Center(

@@ -52,25 +52,29 @@ enum AppSettings<T> {
   ),
   displayChatDetailsColumn('chat.fluffy.display_chat_details_column', false),
   // AppConfig-mirrored settings
-  applicationName<String>('chat.fluffy.application_name', 'FluffyChat'),
+  applicationName<String>('chat.fluffy.application_name', 'WhiskerChat'),
   defaultHomeserver<String>('chat.fluffy.default_homeserver', 'matrix.org'),
-  // colorSchemeSeed stored as ARGB int
-  colorSchemeSeedInt<int>('chat.fluffy.color_scheme_seed', 0xFF5625BA),
   emojiSuggestionLocale<String>('emoji_suggestion_locale', ''),
   enableSoftLogout<bool>('chat.fluffy.enable_soft_logout', true),
   enableMatrixNativeOIDC<bool>('chat.fluffy.enable_matrix_native_oidc', true),
   presetHomeserver<String>('chat.fluffy.preset_homeserver', ''),
   welcomeText<String>('chat.fluffy.welcome_text', ''),
-  website<String>('chat.fluffy.website_url', 'https://fluffychat.im'),
+  website<String>(
+    'chat.fluffy.website_url',
+    'https://github.com/thecathousemp3/whiskerchat',
+  ),
   logoUrl<String>(
     'chat.fluffy.logo_url',
-    'https://fluffychat.im/assets/favicon.png',
+    'https://raw.githubusercontent.com/thecathousemp3/whiskerchat/main/assets/logo/img/logo.png',
   ),
   privacyPolicy<String>(
     'chat.fluffy.privacy_policy_url',
-    'https://fluffychat.im/privacy',
+    'https://github.com/thecathousemp3/whiskerchat/blob/main/PRIVACY.md',
   ),
-  tos<String>('chat.fluffy.tos_url', 'https://fluffychat.im/tos'),
+  tos<String>(
+    'chat.fluffy.tos_url',
+    'https://github.com/thecathousemp3/whiskerchat',
+  ),
   sendTimelineEventTimeout<int>('chat.fluffy.send_timeline_event_timeout', 15),
   webNotificationSound<bool>('chat.fluffy.web_notification_sound', true),
   chatFilter<String>('chat.fluffy.chat_filter', 'allChats'),

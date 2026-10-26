@@ -22,13 +22,6 @@ class SettingsStyle extends StatefulWidget {
 }
 
 class SettingsStyleController extends State<SettingsStyle> {
-  void setChatColor(Color? color) {
-    AppSettings.colorSchemeSeedInt.setItem(
-      color?.toARGB32() ?? AppSettings.colorSchemeSeedInt.defaultValue,
-    );
-    ThemeController.of(context).setPrimaryColor(color);
-  }
-
   Future<void> setWallpaper() async {
     final client = Matrix.of(context).client;
     final picked = await selectFiles(context, type: FileType.image);
@@ -113,7 +106,6 @@ class SettingsStyleController extends State<SettingsStyle> {
   );
 
   ThemeMode get currentTheme => ThemeController.of(context).themeMode;
-  Color? get currentColor => ThemeController.of(context).primaryColor;
 
   void switchTheme(ThemeMode? newTheme) {
     if (newTheme == null) return;

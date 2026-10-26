@@ -1,11 +1,11 @@
 {
-    "name": "FluffyChat",
-    "short_name": "FluffyChat",
+    "name": "WhiskerChat",
+    "short_name": "WhiskerChat",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#FFFFFF",
     "theme_color": "#41a2bc",
-    "description": "The cutest messenger in the Matrix network",
+    "description": "WhiskerChat is a messenger for the Matrix network",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
